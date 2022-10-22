@@ -13,23 +13,23 @@ app.get("/", async (req, res) => {
     url: url,
   });
   const modules = resp.data;
-  const filter = 'CS'
+  const filter = "CS";
   const filtered1 = modules.filter((module) =>
     module.moduleCode.includes(filter)
   );
   const filtered2 = filtered1.map((modules) => {
-    wants = {}
-    wants["moduleCode"] = modules.moduleCode
-    wants["title"] = modules.title
-    wants["description"] = modules.description
-    return wants
-  })
+    wants = {};
+    wants["moduleCode"] = modules.moduleCode;
+    wants["moduleTitle"] = modules.title;
+    wants["description"] = modules.description;
+    return wants;
+  });
 
   res.status(200).send(filtered2);
 });
 
-app.listen('8000', function () {
-    console.log("Running CS3219 Assignment B4 on port " + 8000)
+app.listen("8000", function () {
+  console.log("Running CS3219 Assignment B4 on port " + 8000);
 });
 
 exports.filterData = app;
